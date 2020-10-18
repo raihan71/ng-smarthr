@@ -18,7 +18,10 @@
       </p>
 
       <div class="button">
-        <button class="full-width" type="submit" mat-flat-button color="primary">Sign In</button>
+        <button class="full-width" type="submit" mat-flat-button color="primary" [disabled]="loading">
+          <span>Sign In</span>
+          
+        </button>
       </div>
     </form>
   </mat-card-content>

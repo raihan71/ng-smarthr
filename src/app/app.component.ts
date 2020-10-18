@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'NgSmartHR';
   isAuthed: boolean = false;
+  subscription: any;
   constructor(private auth: AuthService) {
     this.auth.isAuthenticated() ? this.isAuthed = true : this.isAuthed = false;
   }

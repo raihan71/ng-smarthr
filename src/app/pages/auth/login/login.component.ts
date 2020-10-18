@@ -30,7 +30,7 @@ import { ApiService } from './../../../services/api.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-
+  loading = false;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -62,6 +62,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     } else {
+      this.loading = true;
       const formData = this.loginForm.value;
       this.api.request(serviceUtil.auth.login, formData, false)
           .pipe()
@@ -70,7 +71,10 @@ export class LoginComponent implements OnInit {
               this.auth.createSession(JSON.stringify(token));
               this.auth.createUser(JSON.stringify(user));
               this.router.navigateByUrl('/account');
+              window.location.reload();
+              this.loading = false;
             }, err => {
+              this.loading = false;
               console.log(err);
             });
     }
