@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import '~ngx-bottom-nav/theming'; // <-- include SASS lib file
+
+@include mat-core();
+
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+$warn: mat-palette($mat-red);
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+@include ngx-bottom-nav-theme($theme); // <-- include the bottom nav theme
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.shrink-10 { display: block; margin: 10px }
+.full-width { width: 100%; }
+.medium { font-size: medium }

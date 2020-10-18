@@ -1,10 +1,14 @@
+import { AuthService } from './services/auth.service';
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: [``]
 })
 export class AppComponent {
-  title = 'ng-smarthr';
+  title = 'NgSmartHR';
+  isAuthed: boolean = false;
+  constructor(private auth: AuthService) {
+    this.auth.isAuthenticated() ? this.isAuthed = true : this.isAuthed = false;
+  }
 }

@@ -1,0 +1,71 @@
+<mat-card>
+  <mat-card-subtitle>Employee Form</mat-card-subtitle>
+  <form [formGroup]="employeeForm" class="employee-form">
+    <table celspacing="0" class="full-width">
+        <tr>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>NIP</mat-label>
+              <input type="text" matInput placeholder="NIP" formControlName="nip">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Birth Date</mat-label>
+              <input type="date" matInput placeholder="Birth Date" formControlName="birth_date">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Full Name</mat-label>
+              <input type="text" matInput placeholder="Full Name" formControlName="full_name">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Nick Name</mat-label>
+              <input type="text" matInput placeholder="Nick Name" formControlName="nick_name">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile</mat-label>
+                <span matPrefix >+62 &nbsp;</span>
+                <input type="tel" matInput placeholder="Mobile Number" formControlName="mobile">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="Email" formControlName="email">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field appearance="outline">
+                <mat-label>Telephone</mat-label>
+                <span matPrefix >+62 &nbsp;</span>
+                <input type="tel" matInput placeholder="Telephone Number" formControlName="phone">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field appearance="outline">
+              <mat-label>Address</mat-label>
+              <textarea matInput placeholder="Full Address" cols="1" rows="1" formControlName="address"></textarea>
+            </mat-form-field>
+          </td>
+        </tr>
+    </table>
+    <div class="button">
+      <button class="full-width" type="submit" mat-flat-button color="primary">
+        <span>{{btnTxt}}</span>
+        <mat-icon>{{iconTxt}}</mat-icon>
+      </button>
+    </div>
+  </form>
+</mat-card>
