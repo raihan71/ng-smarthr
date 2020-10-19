@@ -1,6 +1,6 @@
-<h2 mat-dialog-title>Are you sure want to save?</h2>
+<h2 mat-dialog-title>{{data?.title}}</h2>
 <mat-dialog-content class="mat-typography">
-  <p>Data will saved into database.</p>
+  <p>{{data?.message}}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close color="warn">Cancel</button>

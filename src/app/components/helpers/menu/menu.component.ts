@@ -9,7 +9,13 @@ import { BottomNavItem } from 'ngx-bottom-nav';
         left: 0;
         bottom: 0;
         width: 100%;
-    }`
+    }
+    @media only screen and (max-width: 768px) and (min-width: 260px) {
+      ::ng-deep app-menu {
+        position: relative;
+      }
+    }
+    `
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -28,7 +28,6 @@ export class HeaderComponent implements OnInit {
     this.auth.removeSession();
     this.auth.removeUser();
     this.router.navigateByUrl('/');
-    window.location.reload();
   }
 
 }

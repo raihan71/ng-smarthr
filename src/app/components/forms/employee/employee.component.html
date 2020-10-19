@@ -1,18 +1,20 @@
 <mat-card>
   <mat-card-subtitle>Employee Form</mat-card-subtitle>
-  <form [formGroup]="employeeForm" class="employee-form">
+  <form [formGroup]="employeeForm" (submit)="onSubmit()" class="employee-form">
     <table celspacing="0" class="full-width">
         <tr>
           <td>
             <mat-form-field appearance="outline">
               <mat-label>NIP</mat-label>
               <input type="text" matInput placeholder="NIP" formControlName="nip">
+              <mat-error *ngIf="submitted && f.nip.errors && f.nip.errors.required" >NIP is required</mat-error>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field appearance="outline">
               <mat-label>Birth Date</mat-label>
-              <input type="date" matInput placeholder="Birth Date" formControlName="birth_date">
+              <input type="datetime" matInput placeholder="Birth Date" formControlName="birth_date">
+              <mat-error *ngIf="submitted && f.birth_date.errors && f.birth_date.errors.required" >Birth Date is required</mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -21,12 +23,14 @@
             <mat-form-field appearance="outline">
               <mat-label>Full Name</mat-label>
               <input type="text" matInput placeholder="Full Name" formControlName="full_name">
+              <mat-error *ngIf="submitted && f.full_name.errors && f.full_name.errors.required">Name is required</mat-error>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field appearance="outline">
               <mat-label>Nick Name</mat-label>
               <input type="text" matInput placeholder="Nick Name" formControlName="nick_name">
+              <mat-error *ngIf="submitted && f.nick_name.errors && f.nick_name.errors.required" >Nick name is required</mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -36,12 +40,17 @@
                 <mat-label>Mobile</mat-label>
                 <span matPrefix >+62 &nbsp;</span>
                 <input type="tel" matInput placeholder="Mobile Number" formControlName="mobile">
+                <mat-error *ngIf="submitted && f.mobile.errors && f.mobile.errors.required" >Mobile is required</mat-error>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field appearance="outline">
               <mat-label>Email</mat-label>
               <input type="email" matInput placeholder="Email" formControlName="email">
+              <div *ngIf="submitted && f.email.errors" >
+                <mat-error *ngIf="f.email.errors.required" >Email is required</mat-error>
+                <mat-error *ngIf="f.email.errors.email" >Email must be a valid email address</mat-error>
+              </div>
             </mat-form-field>
           </td>
         </tr>
@@ -51,21 +60,27 @@
                 <mat-label>Telephone</mat-label>
                 <span matPrefix >+62 &nbsp;</span>
                 <input type="tel" matInput placeholder="Telephone Number" formControlName="phone">
+                <mat-error *ngIf="submitted && f.phone.errors && f.phone.errors.required" >Telephone is required</mat-error>
             </mat-form-field>
           </td>
           <td>
             <mat-form-field appearance="outline">
               <mat-label>Address</mat-label>
               <textarea matInput placeholder="Full Address" cols="1" rows="1" formControlName="address"></textarea>
+              <mat-error *ngIf="submitted && f.address.errors && f.address.errors.required" >Address is required</mat-error>
             </mat-form-field>
           </td>
         </tr>
     </table>
     <div class="button">
-      <button class="full-width" type="submit" mat-flat-button color="primary">
+      <button [disabled]="loading" class="full-width" type="submit" mat-flat-button color="primary">
         <span>{{btnTxt}}</span>
         <mat-icon>{{iconTxt}}</mat-icon>
       </button>
+      <a [routerLink]="'/account/employee'" class="full-width" mat-flat-button color="warn">
+          <span>Cancel</span>
+          <mat-icon>cancel</mat-icon>
+      </a>
     </div>
   </form>
 </mat-card>

@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { AppMaterialModule } from './../../../app-material.module';
 import { EmployeeComponent } from './employee.component';
 import { NgModule } from '@angular/core';
@@ -12,7 +13,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    RouterModule
   ],
   exports: [EmployeeComponent],
   bootstrap: [EmployeeComponent]

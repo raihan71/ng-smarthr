@@ -9,6 +9,7 @@ export default {
       list: '/demo/employee/page-search',
       show: (id) => `/demo/employee/${id}`,
       delete: (id) => `/demo/employee/${id}`,
+      update: (id) => `/demo/employee/${id}`,
     }
   }
 };

@@ -13,14 +13,17 @@
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input type="password" matInput autocomplete="new-password" placeholder="Password" formControlName="password">
+          <input [type]="hide ? 'password' : 'text'" matInput autocomplete="new-password" placeholder="Password" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
         </mat-form-field>
       </p>
 
       <div class="button">
         <button class="full-width" type="submit" mat-flat-button color="primary" [disabled]="loading">
           <span>Sign In</span>
-          
+
         </button>
       </div>
     </form>

@@ -1,6 +1,5 @@
+import { LoaderModule } from './components/helpers/loader/loader.module';
 import { AuthGuard } from './services/guards/auth.guard';
-import { MenuModule } from './components/helpers/menu/menu.module';
-import { HeaderModule } from './components/helpers/header/header.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,9 +15,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MenuModule,
-    HeaderModule,
-    HttpClientModule
+    HttpClientModule,
+    LoaderModule
   ],
   providers: [
     AuthGuard

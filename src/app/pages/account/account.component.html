@@ -1,0 +1,5 @@
+<app-header *ngIf="isAuthed" [title]="title"></app-header>
+<div class="shrink-10">
+  <router-outlet></router-outlet>
+</div>
+<app-menu *ngIf="isAuthed"></app-menu>
