@@ -17,6 +17,8 @@ import { LoaderService } from 'src/app/services/loader.service';
   styles: [`
     table {width: 100%}
     td, th {width: 25%}
+    .button-row {display: flex}
+    .button-row > .left {margin-left:8px}
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
