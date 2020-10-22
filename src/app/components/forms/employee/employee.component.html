@@ -47,10 +47,8 @@
             <mat-form-field appearance="outline">
               <mat-label>Email</mat-label>
               <input type="email" matInput placeholder="Email" formControlName="email">
-              <div *ngIf="submitted && f.email.errors" >
-                <mat-error *ngIf="f.email.errors.required" >Email is required</mat-error>
-                <mat-error *ngIf="f.email.errors.email" >Email must be a valid email address</mat-error>
-              </div>
+                <mat-error *ngIf="submitted && f.email.errors && f.email.errors.required" >Email is required</mat-error>
+                <mat-error *ngIf="submitted && f.email.errors && f.email.errors.email" >Email must be a valid email address</mat-error>
             </mat-form-field>
           </td>
         </tr>
